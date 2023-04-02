@@ -77,15 +77,30 @@ const labels = [...document.querySelectorAll("label")];
 // });
 
 // function calcAge() {}
-
+const yearUI = document.querySelector(".years-age");
+const monthUI = document.querySelector(".months-age");
+const dayUI = document.querySelector(".days-age");
 submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  yearUI.innerHTML = "--";
+  monthUI.innerHTML = "--";
+  dayUI.innerHTML = "--";
   // day
-  const currentDay = new Date().getDate();
+  const currentYear = new Date().getFullYear();
+  const year = document.getElementById("year");
+  const yearValue = +year.value;
+  const yearParent = year.parentElement;
+  const yearErreur = yearParent.querySelector(".err-msg");
+
   const day = document.getElementById("day");
   const dayValue = +day.value;
   const dayParent = day.parentElement;
   const err = dayParent.querySelector(".err-msg");
+
+  const month = document.getElementById("month");
+  const monthValue = +month.value;
+  const monthParent = month.parentElement;
+  const monthErreur = monthParent.querySelector(".err-msg");
   if (day.value === "") {
     err.innerHTML = "This field is required";
     inputCheck(dayParent, err);
@@ -99,14 +114,11 @@ submitForm.addEventListener("submit", (e) => {
     dayParent.classList.remove("wrong");
     err.classList.add("hide");
     // renderDay(dayValue, currentDay);
+    calcAndRender(yearValue, monthValue, dayValue);
   }
 
   // month
-  const currentMonth = new Date().getMonth();
-  const month = document.getElementById("month");
-  const monthValue = +month.value;
-  const monthParent = month.parentElement;
-  const monthErreur = monthParent.querySelector(".err-msg");
+
   if (month.value === "") {
     monthErreur.innerHTML = "This field is required";
     inputCheck(monthParent, monthErreur);
@@ -120,14 +132,11 @@ submitForm.addEventListener("submit", (e) => {
     monthParent.classList.remove("wrong");
     monthErreur.classList.add("hide");
     // renderMonths(monthValue - 1, currentMonth);
+    calcAndRender(yearValue, monthValue, dayValue);
   }
 
   // year
-  const currentYear = new Date().getFullYear();
-  const year = document.getElementById("year");
-  const yearValue = +year.value;
-  const yearParent = year.parentElement;
-  const yearErreur = yearParent.querySelector(".err-msg");
+
   if (year.value === "") {
     yearErreur.innerHTML = "This field is required";
     inputCheck(yearParent, yearErreur);
@@ -141,9 +150,8 @@ submitForm.addEventListener("submit", (e) => {
     yearParent.classList.remove("wrong");
     yearErreur.classList.add("hide");
     // renderYear(yearValue, currentYear,monthValue,dayValue);
+    calcAndRender(yearValue, monthValue, dayValue);
   }
-
-  calcAndRender(yearValue, monthValue, dayValue);
 });
 
 function inputCheck(element, err) {
@@ -235,9 +243,9 @@ function calcAndRender(yearValue, monthValue, dayValue) {
   }
 
   // render to UI
-  const yearUI = document.querySelector(".years-age");
-  const monthUI = document.querySelector(".months-age");
-  const dayUI = document.querySelector(".days-age");
+
+  if (!ageDays || !ageMonths || !ageDays) return;
+
   yearUI.innerHTML = ageYears;
   monthUI.innerHTML = ageMonths;
   dayUI.innerHTML = ageDays;

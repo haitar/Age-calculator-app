@@ -51,6 +51,7 @@ input {
 input:focus {
   /* border: 2px solid var(--primary-Light-red); when fields wrong */
   outline: none;
+  border: 2px solid var(--primary-purple);
 }
 input::placeholder {
   font-weight: bold;
@@ -75,6 +76,10 @@ label {
   position: absolute;
   right: -10px;
   bottom: -25%;
+  transition: 0.2s linear;
+}
+.submit-img:hover {
+  background-color: hsl(259, 63%, 19%);
 }
 
 /* Age  */
