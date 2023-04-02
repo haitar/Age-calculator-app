@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/script.js" defer></script>
+    <title>Age Calculator App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <!-- day -->
+        <div class="card day-wrapper">
+          <label class="" for="day">DAY</label>
+          <input
+            class="input"
+            type="text"
+            id="day"
+            placeholder="DD"
+            autocomplete="off"
+            minlength="1"
+            maxlength="2"
+          />
+          <p class="err-msg hide" data-msg-day></p>
+        </div>
+        <!-- month -->
+        <div class="card month-wrapper">
+          <label for="month">MONTH</label>
+          <input
+            class="input"
+            type="text"
+            id="month"
+            placeholder="MM"
+            autocomplete="off"
+            minlength="1"
+            maxlength="2"
+          />
+          <p class="err-msg hide" data-msg-month>this field is required</p>
+        </div>
+        <!-- year -->
+        <div class="card year-wrapper">
+          <label for="year">YEAR</label>
+          <input
+            class="input"
+            type="text"
+            id="year"
+            placeholder="YYYY"
+            autocomplete="off"
+            minlength="4"
+            maxlength="4"
+          />
+          <p class="err-msg hide" data-msg-year>this field is required</p>
+        </div>
+        <input
+          class="submit-img"
+          type="image"
+          src="./Images/icon-arrow.svg"
+          alt="submit"
+          id="submit"
+        />
+      </form>
+      <div class="age">
+        <div class="ymd years"><span class="years-age">--</span> years</div>
+        <div class="ymd months"><span class="months-age">--</span> months</div>
+        <div class="ymd days"><span class="days-age">--</span> days</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-purple: hsl(259, 100%, 65%);
+  --primary-Light-red: hsl(0, 100%, 67%);
+  --secondary-Light-grey: hsl(0, 0%, 86%);
+  --secondary-Smokey-grey: hsl(0, 1%, 44%);
+  --secondary-Off-black: hsl(0, 0%, 8%);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-Light-grey);
+}
+
+.container {
+  width: 499px;
+  padding: 50px;
+  border-radius: 8px 8px 50% 8px;
+  background-color: white;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--secondary-Smokey-grey);
+  margin-bottom: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  width: 100px;
+  padding: 10px 10px;
+}
+input:focus {
+  /* border: 2px solid var(--primary-Light-red); when fields wrong */
+  outline: none;
+}
+input::placeholder {
+  font-weight: bold;
+  color: var(--secondary-Smokey-grey);
+}
+label {
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.err-msg {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--primary-Light-red);
+}
+
+.submit-img {
+  background-color: var(--primary-purple);
+  width: 47px;
+  /* height: 60px; */
+  border-radius: 50%;
+  position: absolute;
+  right: -10px;
+  bottom: -25%;
+}
+
+/* Age  */
+.ymd {
+  font-style: italic;
+  font-size: 3.5em;
+  font-weight: 800;
+}
+span {
+  color: var(--primary-purple);
+}
+
+.hide {
+  display: none;
+}
+
+/* wrong */
+
+.wrong label {
+  color: red;
+}
+.wrong input {
+  border: 2px solid red;
+}
